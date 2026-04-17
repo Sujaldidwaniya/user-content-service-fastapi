@@ -99,7 +99,7 @@ uvicorn app.main:app --reload
 The application is deployed on Render with a managed PostgreSQL database.
 
 Live API documentation:  
-https://your-app-name.onrender.com/docs
+https://user-content-service-fastapi.onrender.com/docs
 
 ## Future Improvements
 
