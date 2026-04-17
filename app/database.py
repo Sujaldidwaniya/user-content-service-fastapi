@@ -5,10 +5,14 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
 from .config import settings
+import os
 
-SQLALCHEMY_DATABASE_URL=f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_username}"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine=create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={"sslmode": "require"}
+)
 
 SessionLocal=sessionmaker(autoflush=False,autocommit=False,bind=engine)
 
